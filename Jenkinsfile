@@ -6,6 +6,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'uname -a'
+                sh 'ruby -v'
             }
         }
     }
