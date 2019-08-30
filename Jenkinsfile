@@ -7,7 +7,7 @@ pipeline {
             steps {
                 sh 'uname -a'
                 sh 'ruby -v'
-                sh 'ls'
+                sh 'java --version'
             }
         }
     }
