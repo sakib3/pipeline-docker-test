@@ -1,4 +1,5 @@
 node {
+    checkout scm
     /* Requires the Docker Pipeline plugin to be installed */
     docker.image('mysql:5.6.40').inside {
         docker.image('node:7-alpine').inside {
