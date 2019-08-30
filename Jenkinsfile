@@ -1,8 +1,11 @@
 node {
     /* Requires the Docker Pipeline plugin to be installed */
     docker.image('mysql:5.6.40').inside {
-        stage('Test') {
-            sh 'mysql --version'
+        docker.image('node:7-alpine').inside {
+            stage('Test') {
+                sh 'node --version'
+                sh 'mysql --version'
+            }
         }
     }
 }
