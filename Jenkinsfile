@@ -1,7 +1,7 @@
 node {
     checkout scm
     /* Requires the Docker Pipeline plugin to be installed */
-    def customImage = docker.build("Dockerfile")
+    def customImage = docker.build("dockerfile")
     customImage.inside {
         sh 'ruby -v'
     }
