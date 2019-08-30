@@ -7,6 +7,7 @@ pipeline {
             steps {
                 sh 'uname -a'
                 sh 'ruby -v'
+                sh 'whoami'
             }
         }
     }
