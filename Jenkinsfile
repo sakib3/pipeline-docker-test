@@ -1,5 +1,5 @@
 node {
-    //checkout scm
+    checkout scm
     /* Requires the Docker Pipeline plugin to be installed */
      //def customImage = docker.build("dockerfile")
     stage('Build') {
