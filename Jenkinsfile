@@ -4,7 +4,7 @@ node {
      //def customImage = docker.build("dockerfile")
     stage('Build') {
       //sh 'docker-compose up --force-recreate'
-      sh 'docker-compose -f docker-compose.yml run --rm ruby sh -c "ruby -v"'
+      sh 'docker-compose --build -f docker-compose.yml run --rm ruby sh -c "ruby -v && mysql --version"'
       sh 'ruby -v'
       sh 'mysql --version'
     
