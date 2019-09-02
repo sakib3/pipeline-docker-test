@@ -3,7 +3,7 @@ node {
     /* Requires the Docker Pipeline plugin to be installed */
      //def customImage = docker.build("dockerfile")
     stage('Build') {
-      sh 'docker-compose –f build-compose.yml run –rm compile'
+      sh 'docker-compose build build-compose.yml run –rm compile'
       sh 'ruby -v'
     
     }
