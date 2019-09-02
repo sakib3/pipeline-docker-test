@@ -4,10 +4,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    links:
+    depends_on:
       - mysql
-    # depends_on:
-    #   - mysql
   mysql:
     image: mysql:5.6.40
     #restart: always
@@ -22,4 +20,5 @@ services:
       # Opens port 3306 on the container
       - '3306'
       # Where our data will be persisted
+    command:  ["./wait-for-mysql.sh", "localhost"]
   
