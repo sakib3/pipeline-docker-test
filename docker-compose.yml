@@ -2,5 +2,5 @@ version: "3.7"
 services:
   rubyapp:
     build:
-      context: ./
-      dockerfile: DockerFile
+      context: .
+      dockerfile: Dockerfile
