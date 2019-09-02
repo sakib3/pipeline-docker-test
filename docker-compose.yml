@@ -3,4 +3,4 @@ services:
   rubyapp:
     build:
       context: .
-      dockerfile: DockerFile
+      dockerfile: DockerFile-alternate
