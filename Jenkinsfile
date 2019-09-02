@@ -1,8 +1,12 @@
 node {
     //checkout scm
     /* Requires the Docker Pipeline plugin to be installed */
-     def customImage = docker.build("dockerfile")
-
+     //def customImage = docker.build("dockerfile")
+    stage(‘Build’) {
+      sh ‘docker-compose –f build-compose.yml run –rm compile’
+      sh 'ruby -v'
+    
+    }
     // docker.image('mysql:5.6.40').withRun('-e "MYSQL_ROOT_PASSWORD="') { c ->
     //     docker.image('mysql:5.6.40').inside("--link ${c.id}:db") {
     //         /* Wait until mysql service is up */
@@ -21,17 +25,17 @@ node {
      * In order to communicate with the MySQL server, this Pipeline explicitly
      * maps the port (`3306`) to a known port on the host machine.
      */
-    docker.image('mysql:5.6.40').withRun('-e "MYSQL_ROOT_PASSWORD=" -p 3306:3306'){c ->
-        docker.image('mysql:5.6.40').inside("--link ${c.id}:db"){
-            sh 'while ! mysqladmin ping -hdb --silent; do sleep 1; done'
-            sh 'mysql --version'
-        }
+    // docker.image('mysql:5.6.40').withRun('-e "MYSQL_ROOT_PASSWORD=" -p 3306:3306'){c ->
+    //     docker.image('mysql:5.6.40').inside("--link ${c.id}:db"){
+    //         sh 'while ! mysqladmin ping -hdb --silent; do sleep 1; done'
+    //         sh 'mysql --version'
+    //     }
 
-        customImage.inside {
-            sh 'ruby -v'
-            sh 'mysql --version'
-        }
-    }
+    //     customImage.inside {
+    //         sh 'ruby -v'
+    //         sh 'mysql --version'
+    //     }
+    // }
 }
 // pipeline {
 //     agent {
