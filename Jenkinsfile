@@ -1,7 +1,7 @@
 node {
     //checkout scm
     /* Requires the Docker Pipeline plugin to be installed */
-    // def customImage = docker.build("dockerfile")
+     def customImage = docker.build("dockerfile")
 
     // docker.image('mysql:5.6.40').withRun('-e "MYSQL_ROOT_PASSWORD="') { c ->
     //     docker.image('mysql:5.6.40').inside("--link ${c.id}:db") {
