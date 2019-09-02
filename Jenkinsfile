@@ -30,7 +30,6 @@ node {
 
         customImage.inside{
             sh 'ruby -v'
-            sh 'echo ${c.id}'
         }
     }
 }
