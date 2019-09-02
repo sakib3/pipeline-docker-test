@@ -23,6 +23,7 @@ node {
      */
     docker.image('mysql:5.6.40').withRun('-e "MYSQL_ROOT_PASSWORD=" -p 3306:3306'){c ->
         docker.image('mysql:5.6.40').inside("--link ${c.id}:db"){
+            sh 'while ! mysqladmin ping -hdb --silent; do sleep 1; done'
             sh 'mysql --version'
         }
 
