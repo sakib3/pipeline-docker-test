@@ -1,5 +1,6 @@
-  services:
-    compile:
-      build:
-        context: .
-        dockerfile: dockerfile
+version: "3.7"
+services:
+  rubyapp:
+    build:
+      context: .
+      dockerfile: dockerfile
