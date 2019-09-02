@@ -5,6 +5,7 @@ node {
     stage('Build') {
       sh 'docker-compose up --force-recreate'
       sh 'ruby -v'
+      sh 'mysql --version'
     
     }
     // docker.image('mysql:5.6.40').withRun('-e "MYSQL_ROOT_PASSWORD="') { c ->
