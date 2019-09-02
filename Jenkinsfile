@@ -28,6 +28,7 @@ node {
 
         customImage.inside {
             sh 'ruby -v'
+            sh 'mysql --version'
         }
     }
 }
