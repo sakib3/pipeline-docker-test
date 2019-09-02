@@ -22,11 +22,9 @@ node {
             /* Wait until mysql service is up */
             sh 'mysql --version'
         }
-        docker.image('node:7-alpine').inside {
-            stage('Test') {
-                sh 'node --version'
-                //sh 'mysql --version'
-            }
+
+        customImage.inside {
+            sh 'ruby -v'
         }
     }
 }
