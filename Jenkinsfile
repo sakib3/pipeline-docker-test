@@ -22,11 +22,11 @@ node {
      * maps the port (`3306`) to a known port on the host machine.
      */
     docker.image('mysql:5.6.40').withRun('-e "MYSQL_ROOT_PASSWORD=" -p 3306:3306'){c ->
-        docker.image('mysql:5.6.40') {
+        docker.image('mysql:5.6.40').inside{
             sh 'mysql --version'
         }
 
-        customImage.inside{
+        customImage.inside {
             sh 'ruby -v'
         }
     }
