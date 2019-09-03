@@ -30,5 +30,5 @@ services:
     depends_on:
       - mysql
     networks: ['esnet']
-  networks:
-      foo:
+networks:
+  esnet:
