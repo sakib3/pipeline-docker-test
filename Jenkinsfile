@@ -3,14 +3,15 @@ node {
     /* Requires the Docker Pipeline plugin to be installed */
      //def customImage = docker.build("dockerfile")
     stage('Build') {
-      sh 'docker-compose up --force-recreate'
-      //sh 'docker-compose build'
-      sh 'echo "############################"'
-      //sh 'docker-compose -f docker-compose.yml run --rm ruby sh -c "ruby -v && mysql --version"'
-      sh 'ruby -v'
-      sh 'mysql --version'
-      sh 'echo "***************************"'
-      sh 'docker-compose down'
+        sh 'docker-compose up -d'
+        sh 'ruby -v'
+        sh 'mysql --version'
+        sh 'docker-compose down'
+    //   //sh 'docker-compose up --force-recreate'
+    //   sh 'docker-compose build'
+    //   sh 'echo "############################"'
+    //   sh 'docker-compose -f docker-compose.yml run --rm ruby sh -c "ruby -v && mysql --version"'
+    //   sh 'echo "############################"'
     }
     // docker.image('mysql:5.6.40').withRun('-e "MYSQL_ROOT_PASSWORD="') { c ->
     //     docker.image('mysql:5.6.40').inside("--link ${c.id}:db") {
