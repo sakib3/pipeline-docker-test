@@ -4,7 +4,8 @@ node {
      //def customImage = docker.build("dockerfile")
     stage('Build') {
         sh 'docker-compose up -d'
-        sh 'curl -XGET 127.0.0.1:9200'
+        // sh 'curl -XGET 127.0.0.1:9200'
+        sh 'curl http://127.0.0.1:9200/_cluster/health?pretty'
         sh 'ruby -v'
         sh 'mysql --version'
         sh 'docker-compose down'
