@@ -1,15 +1,21 @@
 version: "3.7"
 services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:1.3
+    restart: always
+    ports:
+      - '9200:9200'
   mysql:
     image: mysql:5.6.40
     restart: always
     environment:
       MYSQL_DATABASE: 'cepheid_test'
-      # Password for root access
       MYSQL_ROOT_PASSWORD: 'password'
     ports:
       # <Port exposed> : < MySQL Port running inside container>
       - '3306:3306'
+    depends_on:
+      - elasticsearch
     # expose:
     #   # Opens port 3306 on the container
     #   - '3306'
@@ -20,4 +26,3 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - mysql
-    #command:  ["wait-for-mysql.sh", "localhost"]
