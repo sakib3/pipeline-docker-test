@@ -6,9 +6,9 @@ node {
         sh 'docker-compose up -d'
         sh 'curl -XGET 127.0.0.1:9200'
         //sh 'curl -XGET https://127.0.0.1:9200/_cluster/health?pretty'
-        sh 'ruby -v'
-        sh 'mysql --version'
-        sh 'docker-compose down'
+        //sh 'ruby -v'
+        //sh 'mysql --version'
+        //sh 'docker-compose down'
     }
 }
     // docker.image('mysql:5.6.40').withRun('-e "MYSQL_ROOT_PASSWORD="') { c ->
